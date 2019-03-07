@@ -1,0 +1,31 @@
+.header{
+  height:70px;
+  background-color: dodgerblue;
+  .logo{
+    font-size: 2.6em;    
+    font-family: monospace;
+    font-style: italic;
+    color:#fff;
+  }
+}
+
+.footer{
+  background-color: dodgerblue;
+  position: fixed;
+  bottom:0px;
+  width:100%;
+  .note{
+    display: inline-block;
+    width:100%;
+    color:#fff;
+  }
+}
+
+.error-page{
+  .oops{
+    font-size: 10em;    
+  }
+  .message{
+    font-size: 1.6em;
+  }
+}
