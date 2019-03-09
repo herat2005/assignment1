@@ -16,7 +16,7 @@ export interface IReview {
   title: string;
   content: string;
   stars: number;
-  verfied: true;
+  verified: boolean;
   reviewCreated: number;
   productImg: string;
   productTitle: string;

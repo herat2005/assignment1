@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1551695668034" clover="3.2.0">
-  <project timestamp="1551695668035" name="All files">
-    <metrics statements="121" coveredstatements="43" conditionals="55" coveredconditionals="11" methods="50" coveredmethods="19" elements="226" coveredelements="73" complexity="0" loc="121" ncloc="121" packages="7" files="17" classes="17">
+<coverage generated="1552116645886" clover="3.2.0">
+  <project timestamp="1552116645886" name="All files">
+    <metrics statements="202" coveredstatements="123" conditionals="114" coveredconditionals="49" methods="85" coveredmethods="53" elements="401" coveredelements="225" complexity="0" loc="202" ncloc="202" packages="7" files="20" classes="20">
       <package name="src">
-        <metrics statements="51" coveredstatements="1" conditionals="32" coveredconditionals="0" methods="16" coveredmethods="1"/>
+        <metrics statements="52" coveredstatements="1" conditionals="32" coveredconditionals="0" methods="16" coveredmethods="1"/>
         <file name="App.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/App.tsx">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="10" count="1" type="stmt"/>
         </file>
         <file name="index.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/index.tsx">
-          <metrics statements="12" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <metrics statements="13" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
           <line num="2" count="0" type="stmt"/>
           <line num="3" count="0" type="stmt"/>
@@ -20,8 +20,9 @@
           <line num="8" count="0" type="stmt"/>
           <line num="9" count="0" type="stmt"/>
           <line num="10" count="0" type="stmt"/>
-          <line num="13" count="0" type="stmt"/>
-          <line num="24" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
         </file>
         <file name="serviceWorker.ts" path="/Users/herat/Documents/GitHub/sellics/frontend/src/serviceWorker.ts">
           <metrics statements="38" coveredstatements="0" conditionals="32" coveredconditionals="0" methods="15" coveredmethods="0"/>
@@ -66,82 +67,155 @@
         </file>
       </package>
       <package name="src.actions">
-        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+        <file name="filter.actions.ts" path="/Users/herat/Documents/GitHub/sellics/frontend/src/actions/filter.actions.ts">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="3" count="3" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+        </file>
         <file name="reviews.action.ts" path="/Users/herat/Documents/GitHub/sellics/frontend/src/actions/reviews.action.ts">
           <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-          <line num="5" count="2" type="stmt"/>
-          <line num="6" count="1" type="stmt"/>
-          <line num="11" count="2" type="stmt"/>
+          <line num="5" count="3" type="stmt"/>
+          <line num="6" count="5" type="stmt"/>
+          <line num="11" count="3" type="stmt"/>
           <line num="12" count="2" type="stmt"/>
-          <line num="18" count="2" type="stmt"/>
+          <line num="18" count="3" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
-          <line num="25" count="2" type="stmt"/>
-          <line num="26" count="3" type="stmt"/>
-          <line num="27" count="3" type="stmt"/>
+          <line num="25" count="3" type="stmt"/>
+          <line num="26" count="7" type="stmt"/>
+          <line num="27" count="7" type="stmt"/>
           <line num="28" count="1" type="stmt"/>
           <line num="29" count="1" type="stmt"/>
         </file>
       </package>
       <package name="src.components">
-        <metrics statements="37" coveredstatements="16" conditionals="11" coveredconditionals="3" methods="22" coveredmethods="8"/>
+        <metrics statements="101" coveredstatements="81" conditionals="65" coveredconditionals="38" methods="52" coveredmethods="37"/>
         <file name="DropDwonFilter.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/components/DropDwonFilter.tsx">
-          <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5"/>
-          <line num="12" count="2" type="stmt"/>
-          <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="14" count="8" type="stmt"/>
-          <line num="19" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="24" count="2" type="stmt"/>
-          <line num="25" count="1" type="stmt"/>
+          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="6"/>
+          <line num="13" count="6" type="stmt"/>
+          <line num="14" count="18" type="cond" truecount="1" falsecount="1"/>
+          <line num="18" count="18" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="28" count="6" type="stmt"/>
+          <line num="29" count="6" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
         </file>
         <file name="ErrorBoundary.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/components/ErrorBoundary.tsx">
           <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-          <line num="10" count="1" type="stmt"/>
           <line num="11" count="1" type="stmt"/>
           <line num="12" count="1" type="stmt"/>
-          <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="19" count="1" type="stmt"/>
-          <line num="23" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
         </file>
         <file name="Layout.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/components/Layout.tsx">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="8" count="1" type="stmt"/>
         </file>
         <file name="ReviewContainer.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/components/ReviewContainer.tsx">
-          <metrics statements="17" coveredstatements="2" conditionals="7" coveredconditionals="0" methods="10" coveredmethods="0"/>
-          <line num="20" count="0" type="stmt"/>
-          <line num="21" count="0" type="stmt"/>
-          <line num="22" count="0" type="stmt"/>
-          <line num="26" count="0" type="stmt"/>
+          <metrics statements="55" coveredstatements="43" conditionals="53" coveredconditionals="28" methods="25" coveredmethods="17"/>
+          <line num="24" count="4" type="stmt"/>
+          <line num="25" count="4" type="stmt"/>
+          <line num="26" count="4" type="stmt"/>
           <line num="30" count="0" type="stmt"/>
-          <line num="31" count="0" type="cond" truecount="0" falsecount="5"/>
-          <line num="32" count="0" type="stmt"/>
-          <line num="37" count="0" type="stmt"/>
-          <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="39" count="0" type="stmt"/>
-          <line num="44" count="0" type="stmt"/>
-          <line num="56" count="1" type="stmt"/>
-          <line num="57" count="0" type="stmt"/>
-          <line num="68" count="1" type="stmt"/>
-          <line num="69" count="0" type="stmt"/>
-          <line num="71" count="0" type="stmt"/>
-          <line num="72" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="35" count="0" type="cond" truecount="0" falsecount="5"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="41" count="2" type="stmt"/>
+          <line num="42" count="2" type="stmt"/>
+          <line num="46" count="2" type="stmt"/>
+          <line num="47" count="4" type="cond" truecount="3" falsecount="1"/>
+          <line num="48" count="2" type="stmt"/>
+          <line num="49" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="52" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="53" count="0" type="stmt"/>
+          <line num="55" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="58" count="2" type="stmt"/>
+          <line num="62" count="2" type="stmt"/>
+          <line num="63" count="6" type="cond" truecount="3" falsecount="1"/>
+          <line num="64" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="65" count="0" type="stmt"/>
+          <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="69" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="70" count="0" type="stmt"/>
+          <line num="71" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="74" count="2" type="stmt"/>
+          <line num="78" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="79" count="2" type="stmt"/>
+          <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="85" count="2" type="stmt"/>
+          <line num="86" count="2" type="stmt"/>
+          <line num="87" count="2" type="cond" truecount="3" falsecount="1"/>
+          <line num="88" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="90" count="2" type="stmt"/>
+          <line num="91" count="2" type="stmt"/>
+          <line num="93" count="8" type="cond" truecount="3" falsecount="1"/>
+          <line num="94" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="96" count="2" type="cond" truecount="3" falsecount="1"/>
+          <line num="97" count="1" type="stmt"/>
+          <line num="102" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="103" count="2" type="stmt"/>
+          <line num="108" count="4" type="stmt"/>
+          <line num="109" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="110" count="1" type="stmt"/>
+          <line num="114" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="115" count="1" type="stmt"/>
+          <line num="119" count="2" type="stmt"/>
+          <line num="130" count="2" type="stmt"/>
+          <line num="134" count="4" type="stmt"/>
+          <line num="144" count="2" type="stmt"/>
+          <line num="145" count="4" type="stmt"/>
+          <line num="147" count="4" type="stmt"/>
+          <line num="148" count="4" type="stmt"/>
         </file>
         <file name="ReviewFilter.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/components/ReviewFilter.tsx">
-          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="11" count="0" type="stmt"/>
+          <metrics statements="26" coveredstatements="18" conditionals="8" coveredconditionals="7" methods="16" coveredmethods="9"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="33" count="2" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="46" count="4" type="stmt"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="63" count="0" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
+          <line num="77" count="2" type="stmt"/>
+          <line num="78" count="2" type="stmt"/>
+          <line num="79" count="2" type="stmt"/>
+          <line num="94" count="2" type="stmt"/>
+          <line num="95" count="8" type="stmt"/>
+          <line num="96" count="8" type="cond" truecount="2" falsecount="0"/>
+          <line num="97" count="4" type="stmt"/>
+          <line num="101" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="102" count="2" type="stmt"/>
+          <line num="106" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="107" count="2" type="stmt"/>
+          <line num="115" count="2" type="stmt"/>
+          <line num="131" count="2" type="stmt"/>
+          <line num="132" count="2" type="stmt"/>
+          <line num="137" count="2" type="stmt"/>
+          <line num="138" count="2" type="stmt"/>
+          <line num="139" count="0" type="stmt"/>
         </file>
         <file name="ReviewRow.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/components/ReviewRow.tsx">
-          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-          <line num="11" count="0" type="stmt"/>
-          <line num="12" count="0" type="stmt"/>
-          <line num="13" count="0" type="stmt"/>
-          <line num="24" count="0" type="stmt"/>
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="13" count="4" type="stmt"/>
+          <line num="15" count="4" type="stmt"/>
+          <line num="16" count="4" type="stmt"/>
+          <line num="72" count="4" type="stmt"/>
         </file>
       </package>
       <package name="src.containers">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <file name="ErrorPage.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/containers/ErrorPage.tsx">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="5" count="2" type="stmt"/>
+        </file>
         <file name="Footer.tsx" path="/Users/herat/Documents/GitHub/sellics/frontend/src/containers/Footer.tsx">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="3" count="1" type="stmt"/>
@@ -152,19 +226,34 @@
         </file>
       </package>
       <package name="src.reducers">
-        <metrics statements="9" coveredstatements="6" conditionals="9" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <metrics statements="21" coveredstatements="17" conditionals="14" coveredconditionals="10" methods="4" coveredmethods="4"/>
+        <file name="filter.reducer.ts" path="/Users/herat/Documents/GitHub/sellics/frontend/src/reducers/filter.reducer.ts">
+          <metrics statements="11" coveredstatements="11" conditionals="5" coveredconditionals="4" methods="3" coveredmethods="3"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="14" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="16" count="2" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="19" count="8" type="cond" truecount="2" falsecount="0"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="22" count="7" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="31" count="6" type="stmt"/>
+        </file>
         <file name="index.ts" path="/Users/herat/Documents/GitHub/sellics/frontend/src/reducers/index.ts">
-          <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
           <line num="2" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
         </file>
         <file name="review.reducer.ts" path="/Users/herat/Documents/GitHub/sellics/frontend/src/reducers/review.reducer.ts">
-          <metrics statements="6" coveredstatements="6" conditionals="9" coveredconditionals="7" methods="1" coveredmethods="1"/>
+          <metrics statements="6" coveredstatements="6" conditionals="9" coveredconditionals="6" methods="1" coveredmethods="1"/>
           <line num="32" count="1" type="stmt"/>
-          <line num="41" count="4" type="cond" truecount="4" falsecount="0"/>
+          <line num="41" count="6" type="cond" truecount="4" falsecount="0"/>
           <line num="43" count="1" type="stmt"/>
-          <line num="45" count="1" type="stmt"/>
+          <line num="45" count="3" type="stmt"/>
           <line num="53" count="1" type="stmt"/>
           <line num="55" count="1" type="stmt"/>
         </file>
@@ -173,22 +262,23 @@
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="reviews.mock.ts" path="/Users/herat/Documents/GitHub/sellics/frontend/src/reducers/mocks/reviews.mock.ts">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="2" type="stmt"/>
+          <line num="1" count="4" type="stmt"/>
         </file>
       </package>
       <package name="src.utils">
-        <metrics statements="10" coveredstatements="6" conditionals="3" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <metrics statements="11" coveredstatements="7" conditionals="3" coveredconditionals="1" methods="3" coveredmethods="1"/>
         <file name="constants.ts" path="/Users/herat/Documents/GitHub/sellics/frontend/src/utils/constants.ts">
-          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="3" type="stmt"/>
-          <line num="2" count="3" type="stmt"/>
-          <line num="3" count="3" type="stmt"/>
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="6" type="stmt"/>
+          <line num="2" count="6" type="stmt"/>
+          <line num="3" count="6" type="stmt"/>
+          <line num="4" count="6" type="stmt"/>
         </file>
         <file name="fetchWrapper.ts" path="/Users/herat/Documents/GitHub/sellics/frontend/src/utils/fetchWrapper.ts">
           <metrics statements="7" coveredstatements="3" conditionals="3" coveredconditionals="1" methods="3" coveredmethods="1"/>
-          <line num="1" count="2" type="cond" truecount="1" falsecount="0"/>
-          <line num="2" count="1" type="stmt"/>
-          <line num="14" count="1" type="stmt"/>
+          <line num="1" count="3" type="cond" truecount="1" falsecount="0"/>
+          <line num="2" count="5" type="stmt"/>
+          <line num="14" count="5" type="stmt"/>
           <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="17" count="0" type="stmt"/>
           <line num="19" count="0" type="stmt"/>

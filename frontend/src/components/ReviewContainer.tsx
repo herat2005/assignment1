@@ -18,7 +18,7 @@ interface IMapStateToPropsReview extends IReviewReducer {
 };
 
 type IReviewContainerProps = IMapStateToPropsReview & IMapStateToDispatchReview;
-class ReviewContainer extends React.Component<IReviewContainerProps, any>{
+export class ReviewContainer extends React.Component<IReviewContainerProps, any>{
 
   componentDidMount() {
     const { pageCount } = this.props;
@@ -45,7 +45,8 @@ class ReviewContainer extends React.Component<IReviewContainerProps, any>{
   searchGroupBy(searchReview: IReview[]) {
     const { filterConfig } = this.props;
     const config: any = filterConfig.find(v => v.id === 'group' && v.enabled) || {};
-    const today = moment(new Date());
+    const today = 1518038627000;// moment(new Date()).valueOf() 
+    const createdDate = moment(new Date(searchReview[0].created)).valueOf();
     if (config.appliedFilters === 'day') {
       return searchReview.filter(v => moment(new Date(v.created)).valueOf() === today.valueOf())
     }
@@ -75,12 +76,21 @@ class ReviewContainer extends React.Component<IReviewContainerProps, any>{
   }
 
   searchRatings(review: IReview, ratingsConfig: IFilterConfig) {
+    if (((ratingsConfig || {}).appliedFilters || '') === '') {
+      return true;
+    }
     return review.stars === Number(ratingsConfig.appliedFilters || 0);
   }
 
   renderReviewRow() {
     const { reviews } = this.props;
     const { filterConfig } = this.props;
+    if ((reviews || []).length === 0) {
+      return (
+        <p className="no-review">No Review Available</p>
+      );
+    }
+
     const searchConfig: any = filterConfig.find(v => v.id === 'search' && v.enabled) || {};
     const searchReview = (reviews || []).filter(review => this.searchInputText(review, searchConfig));
 
@@ -89,6 +99,12 @@ class ReviewContainer extends React.Component<IReviewContainerProps, any>{
 
     const ratingsConfig: any = filterConfig.find(v => v.id === 'ratings' && v.enabled) || {};
     const ratingsReview = (reviewsSortBy || []).filter(review => this.searchRatings(review, ratingsConfig));
+
+    if ((ratingsReview || []).length === 0) {
+      return (
+        <p className="no-review">No Review Available</p>
+      );
+    }
 
     return (ratingsReview || []).map((review: IReview) => {
       return <ReviewRow key={review.reviewId} review={review} />;
@@ -104,7 +120,7 @@ class ReviewContainer extends React.Component<IReviewContainerProps, any>{
     }
     if (loading) {
       return (
-        <p className="container">Loading...</p>
+        <p className="container loading">Loading...</p>
       )
     }
     return (

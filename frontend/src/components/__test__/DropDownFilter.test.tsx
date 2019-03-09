@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import DropDownFilter, { IDropDownFilterProps } from '../DropDwonFilter';
 
@@ -14,7 +14,8 @@ describe('Test Render for DropDown Component', () => {
     target: { value: 'the-value' }
   };
   let props: IDropDownFilterProps = {
-    data: [1, 2, 3, 4],
+    id: 'test',
+    data: ['1', '2', '3', '4'],
     filterName: 'demo',
     onValueSet: mockOnChange,
   };
@@ -22,7 +23,7 @@ describe('Test Render for DropDown Component', () => {
     wrapper = shallow(<DropDownFilter {...props} />);
   });
   it('should render with provided data', () => {
-    expect(wrapper.find('option').length).toBe(props.data.length);
+    expect(wrapper.find('option').length).toBe(props.data.length + 1);
   });
   it('should call function on change of option', () => {
     wrapper.find('select').at(0).simulate('change', event)

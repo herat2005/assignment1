@@ -6,11 +6,11 @@ export interface IFilterReducer {
   filterConfig: Array<IFilterConfig>;
 }
 
-const initialState: IFilterReducer = {
+export const initialState: IFilterReducer = {
   filterConfig: getInitialConfig(),
 };
 
-export default function (state: IFilterReducer = initialState, action: IAction) {
+export default function (state: IFilterReducer = initialState, action: IAction): IFilterReducer {
   switch (action.type) {
     case SEARCH_INPUT:
       const filterId = action.payload.id;
@@ -27,7 +27,7 @@ export default function (state: IFilterReducer = initialState, action: IAction) 
   }
 }
 
-function getInitialConfig(): Array<IFilterConfig> {
+export function getInitialConfig(): Array<IFilterConfig> {
   return [{
     id: 'search',
     filterName: 'Search Review',
@@ -58,6 +58,6 @@ function getInitialConfig(): Array<IFilterConfig> {
     filterValue: ['1', '2', '3', '4', '5'],
     filterType: 'ratings',
     appliedFilters: '',
-    enabled: true,
+    enabled: false,
   }];
 }

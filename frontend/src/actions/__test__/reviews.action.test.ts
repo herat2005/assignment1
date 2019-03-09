@@ -12,15 +12,15 @@ describe('reviews action testing', () => {
       }).mockImplementationOnce((url) => {
         return Promise.reject('no data Or API issue');
       })
-    expect(fetchReviews()).resolves.toEqual({
+    expect(fetchReviews(1)).resolves.toEqual({
       type: REVIEWS_FETCH_SUCCESS,
       payload: reviewsMock,
     });
-    expect(fetchReviews()).resolves.toEqual({
+    expect(fetchReviews(2)).resolves.toEqual({
       type: REVIEWS_FETCH_FAIL,
       payload: 'no data Or API issue',
     });
-    fetchReviews();
+    fetchReviews(1);
     expect(spy).toHaveBeenCalled();
     spy.mockClear();
   });

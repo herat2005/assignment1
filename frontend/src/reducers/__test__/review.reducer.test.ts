@@ -10,11 +10,11 @@ describe('check for review reducer', () => {
     expect(reviewReducer(initiakState, { type: REVIEWS_FETCH_START }).loading).toBeTruthy();
   });
   it('should return proper state on fetch success', () => {
-    expect(reviewReducer(initiakState, { type: REVIEWS_FETCH_SUCCESS, payload: reviewsMock }).reviews).toEqual(reviewsMock);
-    expect(reviewReducer(initiakState, { type: REVIEWS_FETCH_SUCCESS, payload: reviewsMock }).loading).toBeFalsy();
-    expect(reviewReducer(initiakState, { type: REVIEWS_FETCH_SUCCESS, payload: reviewsMock }).error).toBeFalsy();
+    expect(reviewReducer(initiakState, { type: REVIEWS_FETCH_SUCCESS, payload: { reviews: reviewsMock } }).reviews).toEqual(reviewsMock);
+    expect(reviewReducer(initiakState, { type: REVIEWS_FETCH_SUCCESS, payload: { reviews: reviewsMock } }).loading).toBeFalsy();
+    expect(reviewReducer(initiakState, { type: REVIEWS_FETCH_SUCCESS, payload: { reviews: reviewsMock } }).error).toBeFalsy();
   });
   it('should return fail state on fetch fail', () => {
-    expect(reviewReducer(initiakState, { type: REVIEWS_FETCH_FAIL}).error).toBeTruthy();
+    expect(reviewReducer(initiakState, { type: REVIEWS_FETCH_FAIL }).error).toBeTruthy();
   });
 });

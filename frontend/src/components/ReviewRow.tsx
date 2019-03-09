@@ -3,7 +3,7 @@ import moment from 'moment';
 import StarRatingComponent from 'react-star-rating-component';
 import { IReview } from '../reducers/review.reducer';
 
-interface IReviewRowProps {
+export interface IReviewRowProps {
   review: IReview;
 }
 
@@ -11,11 +11,11 @@ export default class ReviewRow extends React.Component<IReviewRowProps, any>{
 
   renderReview() {
     const { review } = this.props;
-    const { country, title, authorId, created, stars,
-      reviewId, reviewCreated, content, productTitle }: IReview = { ...review };
+    const { title, created, stars, reviewId,
+      content, productTitle }: IReview = { ...review };
     return (
       <div className="row">
-        <div className="row text-left">
+        <div className="row text-left rdate">
           <span>{moment(new Date(created)).format('MMM-YYYY')}</span>
         </div>
         <div className='row border rounded m-2 p-2'>
@@ -26,7 +26,7 @@ export default class ReviewRow extends React.Component<IReviewRowProps, any>{
               </div>
               <div className="col-md-3 col-6 align-self-center justify-content-center d-md-block d-none">
                 <div className="col-12">Date</div>
-                <div className="col-12">
+                <div className="col-12 created-date">
                   {moment(new Date(created)).format('MM/DD/YYYY')}
                 </div>
               </div>
@@ -44,7 +44,7 @@ export default class ReviewRow extends React.Component<IReviewRowProps, any>{
                 <div className='col-12'>{productTitle}</div>
               </div>
               <div className="col-6 d-md-none d-sm-block align-self-center text-left">
-                <div className="col-xs-12">
+                <div className="col-xs-12 review-create">
                   {moment(new Date(created)).format('MM/DD/YYYY')}
                 </div>
                 <div className="col-xs-12">
