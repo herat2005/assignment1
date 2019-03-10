@@ -36,5 +36,6 @@ Loader for every api retrieve data
 total available rows count display
 responsive design
 
+Not Able to Complete below Work
 Not able to work on design minnute detailing
 Also not able to write much test case
