@@ -25,3 +25,16 @@ and server willl run on 8000 port
 cd frontend/
 npm test
 npx jest --coverage
+
+## Error Handling / debugging
+Error Boundary Component
+Error Page Component[appears on network as well as code error]
+logger component to trace the state on console only enabled for dev mode
+
+## Presentation
+Loader for every api retrieve data
+total available rows count display
+responsive design
+
+Not able to work on design minnute detailing
+Also not able to write much test case

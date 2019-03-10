@@ -95,6 +95,7 @@ export class ReviewContainer extends React.Component<IReviewContainerProps, any>
     const searchReview = (reviews || []).filter(review => this.searchInputText(review, searchConfig));
     const ratingsConfig: any = filterConfig.find(v => v.id === 'ratings' && v.enabled) || {};
     const ratingsReview = (searchReview || []).filter(review => this.searchRatings(review, ratingsConfig));
+    const groupbyConfig: any = filterConfig.find(v => v.id === 'group' && v.enabled) || {};
     const groupBy = this.searchGroupBy(ratingsReview);
     const allReviewsCount = Object.keys(groupBy || {}).length;
 
@@ -107,7 +108,7 @@ export class ReviewContainer extends React.Component<IReviewContainerProps, any>
     const sortedReviews: string[] = this.reviewsSortBy(Object.keys(groupBy));
 
     for (let time of sortedReviews) {
-      if (searchConfig.appliedFilters === 'month' || searchConfig.appliedFilters === 'week') {
+      if (groupbyConfig.appliedFilters === 'month' || groupbyConfig.appliedFilters === 'week') {
         allReviews.push(<h5 className='text-left rdate' key={time}>{time}</h5>);
       }
       totalReviews = totalReviews + groupBy[time].length;
