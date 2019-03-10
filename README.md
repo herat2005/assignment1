@@ -21,6 +21,9 @@ during the time of server start  ,clcient will also start on different port
 UI oProject :http://localhost:3000/
 and server willl run on 8000 port
 
+## server application
+- Server side app required to manage api call and CORS.[created using express]
+
 ## Test
 - cd frontend/
 - npm test
