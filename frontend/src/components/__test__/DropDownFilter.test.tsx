@@ -17,6 +17,7 @@ describe('Test Render for DropDown Component', () => {
     id: 'test',
     data: ['1', '2', '3', '4'],
     filterName: 'demo',
+    appliedFilters: '',
     onValueSet: mockOnChange,
   };
   beforeEach(() => {

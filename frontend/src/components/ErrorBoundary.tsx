@@ -8,8 +8,7 @@ export default class ErrorBoundary extends React.Component<any, any>{
   }
 
   componentDidCatch(error: any, info: any) {
-    console.error(error);
-    console.info(info);
+    console.error('Error Occured=========')
     this.setState({
       error: true,
     });

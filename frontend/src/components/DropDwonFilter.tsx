@@ -4,6 +4,7 @@ export interface IDropDownFilterProps {
   id: string;
   data: Array<string>;
   filterName: string;
+  appliedFilters: string;
   onValueSet: (value: string, id: string) => void;
 }
 
@@ -25,14 +26,15 @@ export default class DropDownFilter extends React.Component<IDropDownFilterProps
   }
 
   render() {
-    const { filterName } = this.props;
+    const { filterName, id, appliedFilters } = this.props;
     return (
       <select
         key={filterName}
         onChange={(e) => this.handleChange(e)}
+        value={appliedFilters}
         className="form-control col-12 round border"
       >
-        <option key={filterName} value={filterName}>{filterName}</option>
+        <option value={id} key={id}>{id}</option>
         {this.generateFilter()}
       </select>
     )

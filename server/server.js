@@ -2,14 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const app = express();
-const port = 8080;
+const port = 8000;
 
 app.use(cors());
 
 app.get('/', (request, response) => {
   const page = request.param('page');
+
   try {
-    response.status(200).send({
+    setTimeout(() => { response.status(200).send({
       reviews: [
         {
           country: "US",
@@ -56,9 +57,24 @@ app.get('/', (request, response) => {
           watched: false,
           created: 1517954722000
         },
+        {
+          country: "IND",
+          reviewId: "R3TGD8Y79S112QL",
+          childAsin: "B01M3S7P22",
+          authorId: "",
+          title: "Awesome",
+          content: "Smaller than I though it was going to be. Also- when I washed it, the fuzz got all over everything else in the washer/dryer.",
+          stars: 3,
+          verified: true,
+          reviewCreated: 1517616000000,
+          productImg: "51+gRXywflL",
+          productTitle: "Hudson Baby Sherpa Blanket with Satin Binding, Pink",
+          watched: false,
+          created: 1517954722000
+        },
       ],
       hasMore: true,
-    });
+    });}, 1000);
     // axios.get(`https://sellics-frontend-test.herokuapp.com/reviews/${page}`)
     //   .then(res => {
     //     response.status(200).send(res.data || {});

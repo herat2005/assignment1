@@ -9,7 +9,8 @@ import { IReviewReducer, IReview } from '../reducers/review.reducer';
 import { IFilterReducer } from '../reducers/filter.reducer';
 import { IFilterConfig } from '../reducers/IFilterConfig';
 import ErrorPage from '../containers/ErrorPage';
-
+import '../components/styles/layout.scss';
+import { groupByWeeks, groupByDays, groupByMonths } from '../utils/common';
 interface IMapStateToDispatchReview {
   fetchReviews: (pageCount: number) => void;
 };
@@ -45,31 +46,29 @@ export class ReviewContainer extends React.Component<IReviewContainerProps, any>
   searchGroupBy(searchReview: IReview[]) {
     const { filterConfig } = this.props;
     const config: any = filterConfig.find(v => v.id === 'group' && v.enabled) || {};
-    const today = 1518038627000;// moment(new Date()).valueOf() 
-    const createdDate = moment(new Date(searchReview[0].created)).valueOf();
-    if (config.appliedFilters === 'day') {
-      return searchReview.filter(v => moment(new Date(v.created)).valueOf() === today.valueOf())
+    if (config.appliedFilters === 'day' || config.appliedFilters === 'group') {
+      return groupByDays(searchReview);
     }
     if (config.appliedFilters === 'week') {
-      return searchReview.filter(v => moment(new Date(v.created)).valueOf() === today.valueOf())
+      return groupByWeeks(searchReview);
     }
     if (config.appliedFilters === 'month') {
-      return searchReview.filter(v => moment(new Date(v.created)).valueOf() === today.valueOf())
+      return groupByMonths(searchReview);
     }
     return searchReview;
   }
 
-  reviewsSortBy(reviews: IReview[]) {
+  reviewsSortBy(reviews: string[]) {
     const { filterConfig } = this.props;
     const config: any = filterConfig.find(v => v.id === 'sort' && v.enabled) || {};
     if (config.appliedFilters === 'desc') {
       return reviews.sort((a, b) => {
-        return a.created < b.created ? 1 : -1;
+        return a < b ? 1 : -1;
       });
     }
-    if (config.appliedFilters === 'asc') {
+    if (config.appliedFilters === 'asc' || config.appliedFilters === 'sort') {
       return reviews.sort((a, b) => {
-        return b.created < a.created ? 1 : -1;
+        return b < a ? 1 : -1;
       });
     }
     return reviews;
@@ -83,32 +82,44 @@ export class ReviewContainer extends React.Component<IReviewContainerProps, any>
   }
 
   renderReviewRow() {
-    const { reviews } = this.props;
+    const { reviews, loading } = this.props;
     const { filterConfig } = this.props;
-    if ((reviews || []).length === 0) {
+    let allReviews: any[] = [];
+    let totalReviews = 0;
+    if ((reviews || []).length === 0 && !loading) {
       return (
         <p className="no-review">No Review Available</p>
       );
     }
-
     const searchConfig: any = filterConfig.find(v => v.id === 'search' && v.enabled) || {};
     const searchReview = (reviews || []).filter(review => this.searchInputText(review, searchConfig));
-
-    const groupBy = this.searchGroupBy(searchReview);
-    const reviewsSortBy = this.reviewsSortBy(groupBy);
-
     const ratingsConfig: any = filterConfig.find(v => v.id === 'ratings' && v.enabled) || {};
-    const ratingsReview = (reviewsSortBy || []).filter(review => this.searchRatings(review, ratingsConfig));
+    const ratingsReview = (searchReview || []).filter(review => this.searchRatings(review, ratingsConfig));
+    const groupBy = this.searchGroupBy(ratingsReview);
+    const allReviewsCount = Object.keys(groupBy || {}).length;
 
-    if ((ratingsReview || []).length === 0) {
+    if (allReviewsCount === 0 && !loading) {
       return (
         <p className="no-review">No Review Available</p>
       );
     }
 
-    return (ratingsReview || []).map((review: IReview) => {
-      return <ReviewRow key={review.reviewId} review={review} />;
-    });
+    const sortedReviews: string[] = this.reviewsSortBy(Object.keys(groupBy));
+
+    for (let time of sortedReviews) {
+      if (searchConfig.appliedFilters === 'month' || searchConfig.appliedFilters === 'week') {
+        allReviews.push(<h5 className='text-left rdate' key={time}>{time}</h5>);
+      }
+      totalReviews = totalReviews + groupBy[time].length;
+      (groupBy[time] || {}).map((review: IReview) => {
+        allReviews.push(<ReviewRow key={review.reviewId} review={review} />);
+      });
+    }
+
+    return [
+      <span className="row text-right" key={'reviewcount'}>Total Reviews : [ {totalReviews} ]</span>
+      , allReviews
+    ];
   }
 
   render() {
@@ -118,17 +129,14 @@ export class ReviewContainer extends React.Component<IReviewContainerProps, any>
         <ErrorPage />
       )
     }
-    if (loading) {
-      return (
-        <p className="container loading">Loading...</p>
-      )
-    }
+
     return (
       <React.Fragment>
         <div className="row">
           <ReviewFilter />
         </div>
         {this.renderReviewRow()}
+        {loading ? <div className="loading col-md-offset-4 col-4"><div className="spinner"></div></div> : false}
       </React.Fragment>
     )
   }

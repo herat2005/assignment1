@@ -52,7 +52,7 @@ describe('Review Container test suits', () => {
       </Provider>
     );
     expect(wrapper.find('.loading').length).toBe(1);
-    expect(wrapper.find('ReviewFilter').length).toBe(0);
+    expect(wrapper.find('ReviewFilter').length).toBe(1);
     expect(wrapper.find('.error-page').length).toBe(0);
   });
 

@@ -23,7 +23,7 @@ export const fetchSuccess = (reviews: IReview) => {
 };
 
 export const fetchReviews = (page: number): Promise<IAction> => {
-  const fetchReviewsURL = `http://localhost:8080?page=${page}`;
+  const fetchReviewsURL = `http://localhost:8000?page=${page}`;
   return fetchWrapper(fetchReviewsURL)
     .then(res => fetchSuccess(res))
     .catch(error => fetchFail(error));

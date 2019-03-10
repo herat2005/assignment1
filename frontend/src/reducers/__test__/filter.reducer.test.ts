@@ -1,5 +1,5 @@
-import filterReducer, { initialState, getInitialConfig, IFilterReducer } from "../filter.reducer";
-import { SEARCH_INPUT } from "../../utils/constants";
+import filterReducer, { initialState, IFilterReducer } from "../filter.reducer";
+import { SEARCH_INPUT, REFRESH_FILTERS } from "../../utils/constants";
 
 
 describe('filter reducer test case', () => {
@@ -20,8 +20,12 @@ describe('filter reducer test case', () => {
       if (v.id === action.payload.id) {
         return Object.assign({}, v, { appliedFilters: action.payload.value });
       }
-      return v; 3
+      return v;
     });
     expect(filterReducer(stateValue, action)).toEqual({ filterConfig: modifiedFilter });
+  });
+  it('reset filters', () => {
+    const action = { type: REFRESH_FILTERS };
+    expect(filterReducer(stateValue, action)).toEqual({ filterConfig: initialState.filterConfig });
   });
 });

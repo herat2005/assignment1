@@ -19,4 +19,9 @@
 during the time of server start  ,clcient will also start on different port
 
 UI oProject :http://localhost:3000/
-and server willl run on 8080 port
+and server willl run on 8000 port
+
+## Test
+cd frontend/
+npm test
+npx jest --coverage

@@ -2,7 +2,7 @@ import * as React from 'react';
 import DropDownFilter from './DropDwonFilter';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { searchText } from '../actions/filter.actions';
+import { searchText, refreshFilters } from '../actions/filter.actions';
 import { IFilterReducer } from '../reducers/filter.reducer';
 import { IFilterConfig } from '../reducers/IFilterConfig';
 import StarRatingComponent from 'react-star-rating-component';
@@ -11,6 +11,7 @@ import './styles/filter.scss';
 interface IMapStateToProps extends IFilterReducer { }
 interface IMapStateToDispatch {
   searchText: (search: string, id: string) => void;
+  refreshFilters: () => void;
 }
 type IReviewFilterProps = IMapStateToProps & IMapStateToDispatch;
 class ReviewFilter extends React.Component<IReviewFilterProps, any>{
@@ -31,7 +32,9 @@ class ReviewFilter extends React.Component<IReviewFilterProps, any>{
 
   renderSearchInput(config: IFilterConfig) {
     return (
-      <div className="col-12 text-left">
+      <div
+        className="col-12 text-left justify-content-center align-self-center"
+      >
         <input
           type="text"
           value={config.appliedFilters}
@@ -49,6 +52,7 @@ class ReviewFilter extends React.Component<IReviewFilterProps, any>{
           id={config.id}
           data={config.filterValue}
           filterName={config.filterName}
+          appliedFilters={config.appliedFilters}
           onValueSet={this.onChangeHandle}
         />
       </div>
@@ -71,11 +75,9 @@ class ReviewFilter extends React.Component<IReviewFilterProps, any>{
     });
   }
 
-
-
   renderRatings(config: IFilterConfig) {
     const { appliedFilters } = config;
-    const { clickedRating, hoverRating } = this.state;
+    const { hoverRating } = this.state;
     return (
       <div className="col-md-12 ratings text-left p-0">
         <StarRatingComponent
@@ -95,17 +97,19 @@ class ReviewFilter extends React.Component<IReviewFilterProps, any>{
     return filterConfig.filter(v => v.enabled).map(v => {
       if (v.filterType === 'dropdown') {
         return (
-          <div key={v.id} className="col-6 float-left p-1">{this.renderSearchDropDown(v)}</div>
+          <div key={v.id} className="col-md-6 float-left p-1">{this.renderSearchDropDown(v)}</div>
         )
       }
       if (v.filterType === 'text') {
         return (
-          <div key={v.id} className="col-4 m-1 p-0">{this.renderSearchInput(v)}</div>
+          <div key={v.id} className="col-md-6 float-left p-0 h-20">
+            {this.renderSearchInput(v)}
+          </div>
         )
       }
       if (v.filterType === 'ratings') {
         return (
-          <div key={v.id} className="col-12 m-1">{this.renderRatings(v)}</div>
+          <div key={v.id} className="col-md-6 float-left">{this.renderRatings(v)}</div>
         )
       }
     })
@@ -114,12 +118,18 @@ class ReviewFilter extends React.Component<IReviewFilterProps, any>{
   render() {
     return (
       <React.Fragment>
-        <div className="col-12 filter-option">
+        <div className="col-12 filter-option ">
           {this.renderFilters()}
         </div>
         <div className="col-12">
-          <div className="col-3 float-right">
-            <button className="text-uppercase btn btn-primary border rounded">Refresh</button>
+          <div className="blank-space-10" />
+          <div className="align-self-center justify-content-center">
+            <button
+              className="text-uppercase btn btn-primary border rounded"
+              onClick={() => this.props.refreshFilters()}
+            >
+              Refresh
+            </button>
           </div>
         </div>
       </React.Fragment>
@@ -136,7 +146,8 @@ const mapStateToProps = (state: { filterReducer: IFilterReducer }, props: any): 
 
 const mapStateToDispatch = (dispatch: Dispatch): IMapStateToDispatch => {
   return {
-    searchText: (search: string, id: string) => { dispatch(searchText(search, id)); }
+    searchText: (search: string, id: string) => { dispatch(searchText(search, id)); },
+    refreshFilters: () => { dispatch(refreshFilters()) }
   }
 }
 

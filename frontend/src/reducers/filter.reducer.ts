@@ -1,5 +1,5 @@
 import { IAction } from "./review.reducer";
-import { SEARCH_INPUT } from "../utils/constants";
+import { SEARCH_INPUT, REFRESH_FILTERS } from "../utils/constants";
 import { IFilterConfig } from "./IFilterConfig";
 
 export interface IFilterReducer {
@@ -7,7 +7,7 @@ export interface IFilterReducer {
 }
 
 export const initialState: IFilterReducer = {
-  filterConfig: getInitialConfig(),
+  filterConfig: [...getInitialConfig()],
 };
 
 export default function (state: IFilterReducer = initialState, action: IAction): IFilterReducer {
@@ -22,6 +22,8 @@ export default function (state: IFilterReducer = initialState, action: IAction):
         return v;
       });
       return Object.assign({}, state, { filterConfig: modifiedFilter });
+    case REFRESH_FILTERS:
+      return Object.assign({}, state, { filterConfig: [...getInitialConfig()] });
     default:
       return state;
   }
@@ -37,11 +39,19 @@ export function getInitialConfig(): Array<IFilterConfig> {
     enabled: true,
   },
   {
+    id: 'ratings',
+    filterName: 'Ratings',
+    filterValue: ['1', '2', '3', '4', '5'],
+    filterType: 'ratings',
+    appliedFilters: '',
+    enabled: true,
+  },
+  {
     id: 'group',
     filterName: 'Group By',
     filterValue: ['day', 'week', 'month'],
     filterType: 'dropdown',
-    appliedFilters: '',
+    appliedFilters: 'group',
     enabled: true,
   },
   {
@@ -49,15 +59,7 @@ export function getInitialConfig(): Array<IFilterConfig> {
     filterName: 'Sort By',
     filterValue: ['asc', 'desc'],
     filterType: 'dropdown',
-    appliedFilters: '',
+    appliedFilters: 'sort',
     enabled: true,
-  },
-  {
-    id: 'ratings',
-    filterName: 'Ratings',
-    filterValue: ['1', '2', '3', '4', '5'],
-    filterType: 'ratings',
-    appliedFilters: '',
-    enabled: false,
   }];
 }
